@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movies",
+  "info": {
+    "singularName": "movie",
+    "pluralName": "movies",
+    "displayName": "Movie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "release_date": {
+      "type": "integer",
+      "required": true
+    },
+    "streamings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::streaming.streaming",
+      "inversedBy": "movies"
+    },
+    "movie_ratings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::movie-rating.movie-rating",
+      "mappedBy": "movie"
+    }
+  }
+}

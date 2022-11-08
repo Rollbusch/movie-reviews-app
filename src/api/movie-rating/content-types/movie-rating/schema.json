@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movies_ratings",
+  "info": {
+    "singularName": "movie-rating",
+    "pluralName": "movies-ratings",
+    "displayName": "Movie Rating"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "general": {
+      "type": "integer",
+      "max": 5,
+      "min": 0,
+      "required": true
+    },
+    "ending": {
+      "type": "integer",
+      "max": 5,
+      "min": 0,
+      "required": true
+    },
+    "effects": {
+      "type": "integer",
+      "max": 5,
+      "min": 0,
+      "required": true
+    },
+    "movie": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::movie.movie",
+      "inversedBy": "movie_ratings"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "movies_ratings"
+    }
+  }
+}

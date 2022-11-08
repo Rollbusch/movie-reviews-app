@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "streamings",
+  "info": {
+    "singularName": "streaming",
+    "pluralName": "streamings",
+    "displayName": "Streaming"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "movies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::movie.movie",
+      "inversedBy": "streamings"
+    }
+  }
+}
